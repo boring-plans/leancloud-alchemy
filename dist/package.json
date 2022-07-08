@@ -1,0 +1,25 @@
+{
+  "name": "leancloud-alchemy",
+  "version": "1.0.0",
+  "description": "A tool helps to use leancloud more fluent.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/boring-plans/leancloud-alchemy.git"
+  },
+  "keywords": [
+    "leancloud"
+  ],
+  "author": "Allen Tao",
+  "license": "MIT",
+  "peerDependencies": {
+    "leancloud-storage": "^4.12.3"
+  },
+  "bugs": {
+    "url": "https://github.com/boring-plans/leancloud-alchemy/issues"
+  },
+  "homepage": "https://github.com/boring-plans/leancloud-alchemy#readme"
+}
