@@ -57,7 +57,7 @@ const getRows = (table: string, ids: string[]) => {
   }
 };
 
-const getRowsBy = (table: string, key: string | [string, string][], value: string) => {
+const getRowsBy = (table: string, key: string | [string, string][], value: string='') => {
   try {
     let keyValueList: [string, string][];
     if (key instanceof Array) {
@@ -78,7 +78,7 @@ const getRowsBy = (table: string, key: string | [string, string][], value: strin
   }
 };
 
-const getRowsContainedIn = (table: string, key: string | [string, string[]][], values: string[]) => {
+const getRowsContainedIn = (table: string, key: string | [string, string[]][], values: string[]=[]) => {
   try {
     let keyValuesList: [string, string[]][];
     if (key instanceof Array) {
@@ -118,12 +118,12 @@ const deleteRows = async (table: string, ids: string[]) => {
   AV.Object.destroyAll(rows);
 };
 
-const deleteRowsBy = async (table: string, key: string | [string, string][], value: string) => {
+const deleteRowsBy = async (table: string, key: string | [string, string][], value: string='') => {
   const rows = await getRowsBy(table, key, value)  as AV.Object[];
   AV.Object.destroyAll(rows);
 };
 
-const deleteRowsContainedIn = async (table: string, key: string | [string, string[]][], values: string[]) => {
+const deleteRowsContainedIn = async (table: string, key: string | [string, string[]][], values: string[]=[]) => {
   const rows = await getRowsContainedIn(table, key, values) as AV.Object[];
   AV.Object.destroyAll(rows);
 };

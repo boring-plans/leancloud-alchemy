@@ -88,6 +88,7 @@ var getRows = function (table, ids) {
 };
 var getRowsBy = function (table, key, value) {
     var _a;
+    if (value === void 0) { value = ''; }
     try {
         var keyValueList = void 0;
         if (key instanceof Array) {
@@ -109,6 +110,7 @@ var getRowsBy = function (table, key, value) {
 };
 var getRowsContainedIn = function (table, key, values) {
     var _a;
+    if (values === void 0) { values = []; }
     try {
         var keyValuesList = void 0;
         if (key instanceof Array) {
@@ -155,30 +157,36 @@ var deleteRows = function (table, ids) { return __awaiter(void 0, void 0, void 0
         }
     });
 }); };
-var deleteRowsBy = function (table, key, value) { return __awaiter(void 0, void 0, void 0, function () {
-    var rows;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, getRowsBy(table, key, value)];
-            case 1:
-                rows = _a.sent();
-                AV.Object.destroyAll(rows);
-                return [2 /*return*/];
-        }
+var deleteRowsBy = function (table, key, value) {
+    if (value === void 0) { value = ''; }
+    return __awaiter(void 0, void 0, void 0, function () {
+        var rows;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, getRowsBy(table, key, value)];
+                case 1:
+                    rows = _a.sent();
+                    AV.Object.destroyAll(rows);
+                    return [2 /*return*/];
+            }
+        });
     });
-}); };
-var deleteRowsContainedIn = function (table, key, values) { return __awaiter(void 0, void 0, void 0, function () {
-    var rows;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, getRowsContainedIn(table, key, values)];
-            case 1:
-                rows = _a.sent();
-                AV.Object.destroyAll(rows);
-                return [2 /*return*/];
-        }
+};
+var deleteRowsContainedIn = function (table, key, values) {
+    if (values === void 0) { values = []; }
+    return __awaiter(void 0, void 0, void 0, function () {
+        var rows;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, getRowsContainedIn(table, key, values)];
+                case 1:
+                    rows = _a.sent();
+                    AV.Object.destroyAll(rows);
+                    return [2 /*return*/];
+            }
+        });
     });
-}); };
+};
 var initAV = function (appId, appKey) {
     if (!AV.applicationId) {
         try {
